@@ -6,7 +6,7 @@ class Stage {
     this.canvas.style = 'background: url("'+this.backdrops[initBack]+'");'
   }
   function addBackdrop(name, src) {
-    this.backdrops[name] = src
+    this.backdrops[name] = src;
   }
   function setBackdrop(name) {
     if (this.backdrops[name]) {
