@@ -6,3 +6,4 @@ Using the library
 ----------------------
 ```
 <script src="https://raw.githubusercontent.com/icositetrachoron-programmer/scratch-like-canvas/master/scratch-like-canvas.js"></script>
+```
