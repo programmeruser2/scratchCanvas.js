@@ -1,22 +1,25 @@
 class Stage {
-  constructor(stageCanvas,initBack,initSrc) {
+  constructor(stageCanvas,context) {
     this.canvas = stageCanvas;
-    this.context = this.canvas.getContext('2d');
-    this.backdrops = {initBack: initSrc}
-    this.canvas.style = 'background: url("'+this.backdrops[initBack]+'");'
+    this.context = context;
+    this.backdrops = {}
   }
-  function addBackdrop(name, src) {
+  addBackdrop(name, src) {
     this.backdrops[name] = src;
   }
-  function setBackdrop(name) {
+  setBackdrop(name) {
     if (this.backdrops[name]) {
       this.canvas.style = 'background: url("'+this.backdrops[name]+'");'
     } else {
       throw "Backdrop does not exist"
     }
   }
+  deleteBackdrop(name) {
+    delete this.backdrops[name]
+  }
 }
-class Sprite {
+
+class Sprite{
   constructor(x,y,stage,initCostume,initSrc) {
     this.stage = stage
     this.x = x
@@ -30,10 +33,10 @@ class Sprite {
       this.stage.context.drawImage(this.img, this.x, this.y)
     }
   }
-  function addCostume(name, src) {
+  addCostume(name, src) {
     this.costumes[name] = src
   }
-  function switchToCostume(name) {
+  switchToCostume(name) {
     if (this.costumes[name]) {
       this.img.src = this.costumes[name]
       this.stage.context.drawImage(this.img, this.x, this.y)
@@ -41,12 +44,12 @@ class Sprite {
       throw "Costume does not exist"
     }
   }
-  function setPos(x, y) {
+  setPos(x, y) {
     this.x = x
     this.y = y
     this.stage.context.drawImage(this.img, this.x, this.y)
   }
-  function isClicked(x,y) {
+  isClicked(x,y) {
     if(x >= this.x && y >= this.y && x <= this.width+this.x && y <= this.height+this.y) {
       return true;
     } else {
