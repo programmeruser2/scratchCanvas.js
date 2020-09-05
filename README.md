@@ -1,4 +1,4 @@
-Scratch-like Canvas
+Scratch.js
 ====================
 A library that makes canvas like [Scratch](https://scratch.mit.edu).
 
